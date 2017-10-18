@@ -1,9 +1,7 @@
 package com.eaststartgroup.www;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
@@ -14,7 +12,10 @@ public class Main {
         try {
             in = new FileInputStream("a.txt");
             out = new FileOutputStream("b.txt");
-            System.out.println(in.toString());
+            Scanner s = new Scanner(new BufferedReader(new FileReader("a.txt")));
+            while (s.hasNext()) {
+                System.out.println(s.next());
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
