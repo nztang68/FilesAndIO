@@ -1,15 +1,30 @@
 package com.eaststartgroup.www;
 
 import java.io.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 	// write your code here
+/*
         FileReader in = null;
         FileWriter out = null;
+*/
+
+        FileInputStream in = null;
+        FileOutputStream out = null;
+
         try {
+
+            in = new FileInputStream("a.txt");
+            out = new FileOutputStream("b.txt");
+            int c;
+            while ((c = in.read()) != -1) {
+                out.write(c);
+            }
+
+/*
             in = new FileReader("a.txt");
             out = new FileWriter("b.txt");
             Scanner s = new Scanner(new BufferedReader(new FileReader("a.txt")));
@@ -20,6 +35,7 @@ public class Main {
             while ( (c = in.read()) != -1) {
                 out.write(c);
             }
+*/
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
