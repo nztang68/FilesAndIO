@@ -16,6 +16,7 @@ public class Main {
             while (s.hasNext()) {
                 System.out.println(s.next());
             }
+            s.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
