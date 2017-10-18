@@ -5,18 +5,21 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	// write your code here
-        FileInputStream in = null;
-        FileOutputStream out = null;
+        FileReader in = null;
+        FileWriter out = null;
         try {
-            in = new FileInputStream("a.txt");
-            out = new FileOutputStream("b.txt");
+            in = new FileReader("a.txt");
+            out = new FileWriter("b.txt");
             Scanner s = new Scanner(new BufferedReader(new FileReader("a.txt")));
             while (s.hasNext()) {
                 System.out.println(s.next());
             }
-            s.close();
+            int c;
+            while ( (c = in.read()) != -1) {
+                out.write(c);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
