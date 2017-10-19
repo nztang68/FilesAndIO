@@ -18,7 +18,7 @@ public class Main {
         try {
 
             in = new FileInputStream("a.txt");
-            out = new FileOutputStream("b.txt");
+            out = new FileOutputStream("/Users/Shared/b.txt");
             int c;
             while ((c = in.read()) != -1) {
                 out.write(c);
